@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { FC } from "react"
 import {
-    RiHomeFill,
+    RiHomeHeartLine,
     RiFacebookBoxFill,
     RiYoutubeFill,
     RiInstagramLine,
@@ -52,7 +52,7 @@ const Header: FC<Props> = ({ background }) => {
         >
             <Link href="/">
                 <a className="mx-6">
-                    <RiHomeFill
+                    <RiHomeHeartLine
                         className={`h-7 w-7 text-white ${
                             background === "red"
                                 ? "hover:text-brand-dark-gray"
