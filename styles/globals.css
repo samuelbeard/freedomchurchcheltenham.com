@@ -1,16 +1,52 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@import url("https://fonts.googleapis.com/css2?family=Newsreader&family=Poppins:wght@300;600;700&display=swap");
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-  box-sizing: border-box;
+@layer components {
+    /* Paragraph Styling */
+    .para {
+        @apply font-serif text-xl mb-3 leading-relaxed text-slate-500;
+    }
+
+    .h1 {
+        @apply text-4xl font-bold mt-5 mb-3 text-slate-600;
+    }
+
+    .h2 {
+        @apply text-3xl font-semibold mt-5 mb-3 text-slate-600;
+    }
+
+    .h3 {
+        @apply text-2xl font-bold mt-5 mb-3 text-slate-600;
+    }
+
+    .h4 {
+        @apply text-1xl font-bold mt-5 mb-3 text-slate-600;
+    }
+
+    .card {
+        @apply bg-slate-300 border-2 border-slate-400 dark:bg-slate-700 dark:border-slate-600;
+    }
+
+    .card-hover {
+        @apply hover:bg-slate-400 hover:border-slate-500;
+    }
+
+    /* Full width container that wraps the entire content of a page (Including the header and footer.) */
+    .page {
+        @apply min-h-screen flex flex-col justify-between;
+    }
+
+    /* Full width of the page to encapsulate a section of content. */
+    /* Add padding and a background to this. */
+    .section {
+        @apply flex justify-center w-full;
+    }
+
+    /* Fits content to a padded section with gaps on the sides. */
+    .container {
+        @apply w-11/12 lg:w-5/12 max-w-4xl;
+    }
 }
