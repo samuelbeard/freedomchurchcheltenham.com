@@ -16,6 +16,15 @@ const Home: NextPage = () => {
                 <div className="flex-grow flex items-center">
                     <section className="section">
                         <div className="xcontainer w-full max-w-6xl grid grid-cols-3 gap-6">
+                            <div className="col-span-1 flex justify-center items-center">
+                                <Image
+                                    src="/img/logo/Freedom-Lion-WHITE_TRANS.webp"
+                                    alt="Freedom Church"
+                                    height={300}
+                                    width={300}
+                                    className="h-64 w-64 ml-32 rounded-full"
+                                />
+                            </div>
                             <div className="mx-auto col-span-2 flex flex-col justify-center">
                                 <h2 className="h2 text-4xl m-0 text-white">
                                     Welcome to
@@ -27,15 +36,6 @@ const Home: NextPage = () => {
                                         Cheltenham
                                     </span>
                                 </h1>
-                            </div>
-                            <div className="col-span-1 flex justify-center items-center">
-                                <Image
-                                    src="/img/logo/Freedom-Lion-WHITE_TRANS.webp"
-                                    alt="Freedom Church"
-                                    height={300}
-                                    width={300}
-                                    className="h-64 w-64 ml-32 rounded-full"
-                                />
                             </div>
                         </div>
                     </section>
