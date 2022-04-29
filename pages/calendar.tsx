@@ -4,7 +4,11 @@ import Layout from "../components/Layout"
 import Day from "../components/Day"
 import { generateDates, goMonthBack, goMonthForward } from "../util/date"
 import format from "date-fns/format"
-import { RiArrowLeftCircleFill, RiArrowRightCircleFill } from "react-icons/ri"
+import {
+    RiArrowLeftCircleFill,
+    RiArrowRightCircleFill,
+    RiRefreshFill,
+} from "react-icons/ri"
 import DayHeader from "../components/DayHeader"
 
 const Calendar: NextPage = () => {
@@ -22,7 +26,6 @@ const Calendar: NextPage = () => {
     return (
         <Layout>
             <div className="py-12">
-                <button onClick={() => resetMonth()}>Reset</button>
                 <div className="pt-2 pb-6 flex">
                     <div className="">
                         <RiArrowLeftCircleFill
@@ -31,7 +34,13 @@ const Calendar: NextPage = () => {
                         />
                     </div>
                     <div className="text-center flex-grow">
-                        <h3 className="h3 m-0">{format(date, "MMMM yyyy")}</h3>
+                        <h3 className="h3 m-0">
+                            {format(date, "MMMM yyyy")}{" "}
+                            <RiRefreshFill
+                                onClick={() => resetMonth()}
+                                className="text-stone-600 h-8 w-8 hover:text-brand-red transition-all cursor-pointer inline-block pb-1"
+                            />
+                        </h3>
                     </div>
                     <div>
                         <RiArrowRightCircleFill
