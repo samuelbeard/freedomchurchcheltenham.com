@@ -1,8 +1,64 @@
 import { NextPage } from "next"
+import { FC, useEffect, useState } from "react"
 import Layout from "../components/Layout"
+import Day from "../components/Day"
+import { generateDates, goMonthBack, goMonthForward } from "../util/date"
+import format from "date-fns/format"
+import { RiArrowLeftCircleFill, RiArrowRightCircleFill } from "react-icons/ri"
+import DayHeader from "../components/DayHeader"
 
 const Calendar: NextPage = () => {
-    return <Layout>Calendar</Layout>
+    const [date, setDate] = useState(new Date())
+    const [days, setDays] = useState(generateDates(date))
+
+    useEffect(() => {
+        setDays(generateDates(date))
+    }, [date])
+
+    const resetMonth = () => {
+        setDate(new Date())
+    }
+
+    return (
+        <Layout>
+            <div className="py-12">
+                <button onClick={() => resetMonth()}>Reset</button>
+                <div className="pt-2 pb-6 flex">
+                    <div className="">
+                        <RiArrowLeftCircleFill
+                            onClick={() => goMonthBack(date, setDate, setDays)}
+                            className="text-stone-600 h-8 w-8 hover:text-brand-red transition-all cursor-pointer"
+                        />
+                    </div>
+                    <div className="text-center flex-grow">
+                        <h3 className="h3 m-0">{format(date, "MMMM yyyy")}</h3>
+                    </div>
+                    <div>
+                        <RiArrowRightCircleFill
+                            onClick={() =>
+                                goMonthForward(date, setDate, setDays)
+                            }
+                            className="text-stone-600 h-8 w-8 hover:text-brand-red transition-all cursor-pointer"
+                        />
+                    </div>
+                </div>
+                <div className="grid grid-cols-7 gap-2 mb-2">
+                    <DayHeader day={0} />
+                    <DayHeader day={1} />
+                    <DayHeader day={2} />
+                    <DayHeader day={3} />
+                    <DayHeader day={4} />
+                    <DayHeader day={5} />
+                    <DayHeader day={6} />
+                </div>
+                <div className="grid grid-cols-7 gap-2">
+                    {days.map(day => (
+                        <Day key={day.toISOString()} day={day} />
+                    ))}
+                </div>
+            </div>
+        </Layout>
+    )
 }
 
 export default Calendar
