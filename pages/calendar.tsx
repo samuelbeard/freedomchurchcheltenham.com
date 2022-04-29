@@ -24,7 +24,7 @@ const Calendar: NextPage = () => {
     }
 
     return (
-        <Layout>
+        <Layout title="Calendar">
             <div className="py-12">
                 <div className="pt-2 pb-6 flex">
                     <div className="">

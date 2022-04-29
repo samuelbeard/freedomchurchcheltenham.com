@@ -2,7 +2,7 @@ import { NextPage } from "next"
 import Layout from "../components/Layout"
 
 const Visit: NextPage = () => {
-    return <Layout>Visit</Layout>
+    return <Layout title="Visit">Visit</Layout>
 }
 
 export default Visit

@@ -15,7 +15,7 @@ const Home: NextPage = () => {
                 <Header />
                 <div className="flex-grow flex items-center">
                     <section className="section">
-                        <div className="xcontainer w-full max-w-6xl grid grid-cols-3 gap-6">
+                        <div className="w-full max-w-6xl grid grid-cols-3 gap-6">
                             <div className="col-span-1 flex justify-center items-center">
                                 <Image
                                     src="/img/logo/Freedom-Lion-WHITE_TRANS.webp"
