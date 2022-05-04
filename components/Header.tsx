@@ -53,7 +53,12 @@ const Header: FC<Props> = ({ background }) => {
         >
             <Link href="/">
                 <a className="mx-6 flex">
-                    <Image src="/img/logo/logo.webp" width={50} height={50} />
+                    <Image
+                        src="/img/logo/logo.webp"
+                        width={50}
+                        height={50}
+                        alt="Freedom Church"
+                    />
                     {/* <RiHomeHeartLine
                         className={`h-7 w-7 text-white ${
                             background === "red"
