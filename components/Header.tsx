@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { FC } from "react"
 import {
     RiHomeHeartLine,
@@ -51,14 +52,15 @@ const Header: FC<Props> = ({ background }) => {
             }`}
         >
             <Link href="/">
-                <a className="mx-6">
-                    <RiHomeHeartLine
+                <a className="mx-6 flex">
+                    <Image src="/img/logo/logo.webp" width={50} height={50} />
+                    {/* <RiHomeHeartLine
                         className={`h-7 w-7 text-white ${
                             background === "red"
                                 ? "hover:text-brand-dark-gray"
                                 : "hover:text-brand-red"
                         } transition-all`}
-                    />
+                    /> */}
                 </a>
             </Link>
             {Links.map(link => (
