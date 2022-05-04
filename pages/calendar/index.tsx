@@ -1,17 +1,47 @@
 import { NextPage } from "next"
 import { FC, useEffect, useState } from "react"
-import Layout from "../components/Layout"
-import Day from "../components/Day"
-import { generateDates, goMonthBack, goMonthForward } from "../util/date"
+import Layout from "../../components/Layout"
+import Day from "../../components/Day"
+import { generateDates, goMonthBack, goMonthForward } from "../../util/date"
 import format from "date-fns/format"
 import {
     RiArrowLeftCircleFill,
     RiArrowRightCircleFill,
     RiRefreshFill,
 } from "react-icons/ri"
-import DayHeader from "../components/DayHeader"
+import DayHeader from "../../components/DayHeader"
+import { getEvents, getEvent } from "../../lib/api"
 
-const Calendar: NextPage = () => {
+export async function getStaticProps() {
+    // console.log("getStaticProps:")
+    let allEvents = await getEvents()
+    let event = await getEvent("3FqmVotHFOQUll9pzC6OHK")
+
+    let events = allEvents.items.map(
+        (e: {
+            fields: { title: string; date: string }
+            sys: { id: string }
+        }) => {
+            return {
+                title: e.fields.title,
+                date: e.fields.date,
+                id: e.sys.id,
+            }
+        }
+    )
+
+    return {
+        props: {
+            events,
+        },
+    }
+}
+
+interface Props {
+    events: IEvent[]
+}
+
+const Calendar: NextPage<Props> = ({ events }) => {
     const [date, setDate] = useState(new Date())
     const [days, setDays] = useState(generateDates(date))
 
@@ -62,7 +92,11 @@ const Calendar: NextPage = () => {
                 </div>
                 <div className="grid grid-cols-7 gap-2">
                     {days.map(day => (
-                        <Day key={day.toISOString()} day={day} />
+                        <Day
+                            key={day.toISOString()}
+                            day={day}
+                            events={events}
+                        />
                     ))}
                 </div>
             </div>
