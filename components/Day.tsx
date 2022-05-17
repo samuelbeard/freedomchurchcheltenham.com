@@ -1,5 +1,6 @@
 import { format } from "date-fns"
 import { FC } from "react"
+import { RiCurrencyLine, RiLoader4Fill } from "react-icons/ri"
 
 interface Props {
     day: Date
@@ -11,16 +12,27 @@ const Day: FC<Props> = ({ day, events }) => {
     const formattedDay = format(day, "dd/MM/yyyy")
 
     const todaysEvents = () => {
-        return events.map(event => {
-            const formatted = format(new Date(event.date), "dd/MM/yyyy")
-            if (formatted === formattedDay) {
-                return (
-                    <div className="px-2 py-1 my-1 uppercase overflow-hidden whitespace-nowrap bg-blue-500 text-white rounded-sm text-xs">
-                        {event.title}
-                    </div>
-                )
-            }
-        })
+        if (events !== null) {
+            return events.map(event => {
+                const formatted = format(new Date(event.date), "dd/MM/yyyy")
+                if (formatted === formattedDay) {
+                    return (
+                        <div
+                            key={event.id}
+                            className="px-2 py-1 my-1 uppercase overflow-hidden whitespace-nowrap bg-blue-500 text-white rounded-sm text-xs"
+                        >
+                            {event.title}
+                        </div>
+                    )
+                }
+            })
+        }
+
+        return (
+            <p className="text-xs font-light">
+                <RiLoader4Fill className="animate-spin" />
+            </p>
+        )
     }
 
     const style = () => {

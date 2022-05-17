@@ -17,18 +17,20 @@ export async function getStaticProps() {
     let allEvents = await getEvents()
     let event = await getEvent("3FqmVotHFOQUll9pzC6OHK")
 
-    let events = allEvents.items.map(
-        (e: {
-            fields: { title: string; date: string }
-            sys: { id: string }
-        }) => {
-            return {
-                title: e.fields.title,
-                date: e.fields.date,
-                id: e.sys.id,
-            }
-        }
-    )
+    let events = allEvents.items
+        ? allEvents.items.map(
+              (e: {
+                  fields: { title: string; date: string }
+                  sys: { id: string }
+              }) => {
+                  return {
+                      title: e.fields.title,
+                      date: e.fields.date,
+                      id: e.sys.id,
+                  }
+              }
+          )
+        : null
 
     return {
         props: {
