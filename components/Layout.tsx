@@ -15,7 +15,7 @@ const Layout: FC<Props> = ({ children, title }) => {
                 <title>{title} | Freedom Church Cheltenham</title>
             </Head>
             <Header background="red" />
-            <div className="max-w-6xl mx-auto w-6xl">{children}</div>
+            <div className="mx-auto">{children}</div>
             <Footer />
         </div>
     )

@@ -15,7 +15,7 @@ const Home: NextPage = () => {
                 <Header />
                 <div className="flex-grow flex items-center">
                     <section className="section">
-                        <div className="w-full max-w-6xl grid grid-cols-3 gap-6">
+                        <div className="w-5/6 lg:w-full max-w-6xl grid grid-cols-3 gap-6">
                             <div className="col-span-1 flex justify-center items-center">
                                 <Image
                                     src="/img/logo/logo.webp"
@@ -29,7 +29,7 @@ const Home: NextPage = () => {
                                 <h2 className="h2 text-4xl m-0 text-white">
                                     Welcome to
                                 </h2>
-                                <h1 className="h1 text-7xl m-0 uppercase text-white">
+                                <h1 className="h1 text-5xl lg:text-7xl m-0 uppercase text-white">
                                     Freedom&nbsp;Church
                                     <br />
                                     <span className="text-brand-red">
@@ -41,6 +41,11 @@ const Home: NextPage = () => {
                     </section>
                 </div>
                 <EventBanner />
+            </div>
+            <div className="section">
+                <div className="container py-12">
+                    <p>content</p>
+                </div>
             </div>
             <Footer />
         </div>

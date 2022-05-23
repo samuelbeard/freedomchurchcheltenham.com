@@ -55,7 +55,7 @@ const Calendar: NextPage<Props> = ({ events }) => {
 
     return (
         <Layout title="Calendar">
-            <div className="py-12">
+            <div className="py-12 w-11/12 lg:w-full mx-auto">
                 <div className="pt-2 pb-6 flex">
                     <div className="">
                         <RiArrowLeftCircleFill

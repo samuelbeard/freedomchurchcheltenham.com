@@ -15,7 +15,10 @@ const Day: FC<Props> = ({ day, events }) => {
             const formatted = format(new Date(event.date), "dd/MM/yyyy")
             if (formatted === formattedDay) {
                 return (
-                    <div className="px-2 py-1 my-1 uppercase overflow-hidden whitespace-nowrap bg-blue-500 text-white rounded-sm text-xs">
+                    <div
+                        key={event.id}
+                        className="px-2 py-1 my-1 uppercase overflow-hidden whitespace-nowrap bg-blue-500 text-white rounded-sm text-xs"
+                    >
                         {event.title}
                     </div>
                 )
@@ -36,7 +39,9 @@ const Day: FC<Props> = ({ day, events }) => {
     }
 
     return (
-        <div className={`w-32 h-32 p-2 rounded-sm ${style()}`}>
+        <div
+            className={`aspect-square h-20 overflow-scroll lg:h-32 p-2 rounded-sm ${style()}`}
+        >
             <div>{format(day, "d")}</div>
             <div>{todaysEvents()}</div>
         </div>

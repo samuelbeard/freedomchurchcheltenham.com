@@ -47,6 +47,6 @@
 
     /* Fits content to a padded section with gaps on the sides. */
     .container {
-        @apply w-11/12 lg:w-5/12 max-w-4xl;
+        @apply w-11/12 lg:w-8/12 max-w-6xl;
     }
 }
