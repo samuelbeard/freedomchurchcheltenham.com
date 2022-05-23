@@ -10,7 +10,7 @@ import {
     RiRefreshFill,
 } from "react-icons/ri"
 import DayHeader from "../../components/DayHeader"
-import { getEvents, getEvent } from "../../lib/api"
+// import { getEvents, getEvent } from "../../lib/api"
 
 // export async function getStaticProps() {
 //     // console.log("getStaticProps:")
