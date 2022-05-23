@@ -12,30 +12,30 @@ import {
 import DayHeader from "../../components/DayHeader"
 import { getEvents, getEvent } from "../../lib/api"
 
-export async function getStaticProps() {
-    // console.log("getStaticProps:")
-    let allEvents = await getEvents()
-    let event = await getEvent("3FqmVotHFOQUll9pzC6OHK")
+// export async function getStaticProps() {
+//     // console.log("getStaticProps:")
+//     let allEvents = await getEvents()
+//     let event = await getEvent("3FqmVotHFOQUll9pzC6OHK")
 
-    let events = allEvents.items.map(
-        (e: {
-            fields: { title: string; date: string }
-            sys: { id: string }
-        }) => {
-            return {
-                title: e.fields.title,
-                date: e.fields.date,
-                id: e.sys.id,
-            }
-        }
-    )
+//     let events = allEvents.items.map(
+//         (e: {
+//             fields: { title: string; date: string }
+//             sys: { id: string }
+//         }) => {
+//             return {
+//                 title: e.fields.title,
+//                 date: e.fields.date,
+//                 id: e.sys.id,
+//             }
+//         }
+//     )
 
-    return {
-        props: {
-            events,
-        },
-    }
-}
+//     return {
+//         props: {
+//             events,
+//         },
+//     }
+// }
 
 interface Props {
     events: IEvent[]
