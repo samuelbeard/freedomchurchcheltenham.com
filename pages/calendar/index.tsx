@@ -95,7 +95,8 @@ const Calendar: NextPage<Props> = ({ events }) => {
                         <Day
                             key={day.toISOString()}
                             day={day}
-                            events={events}
+                            // Hidden for now
+                            // events={events}
                         />
                     ))}
                 </div>

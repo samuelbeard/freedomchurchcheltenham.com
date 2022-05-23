@@ -11,19 +11,21 @@ const Day: FC<Props> = ({ day, events }) => {
     const formattedDay = format(day, "dd/MM/yyyy")
 
     const todaysEvents = () => {
-        return events.map(event => {
-            const formatted = format(new Date(event.date), "dd/MM/yyyy")
-            if (formatted === formattedDay) {
-                return (
-                    <div
-                        key={event.id}
-                        className="px-2 py-1 my-1 uppercase overflow-hidden whitespace-nowrap bg-blue-500 text-white rounded-sm text-xs"
-                    >
-                        {event.title}
-                    </div>
-                )
-            }
-        })
+        if (events) {
+            return events.map(event => {
+                const formatted = format(new Date(event.date), "dd/MM/yyyy")
+                if (formatted === formattedDay) {
+                    return (
+                        <div
+                            key={event.id}
+                            className="px-2 py-1 my-1 uppercase overflow-hidden whitespace-nowrap bg-blue-500 text-white rounded-sm text-xs"
+                        >
+                            {event.title}
+                        </div>
+                    )
+                }
+            })
+        }
     }
 
     const style = () => {
