@@ -3,7 +3,7 @@ import { FC } from "react"
 
 interface Props {
     day: Date
-    events: IEvent[]
+    events?: IEvent[]
 }
 
 const Day: FC<Props> = ({ day, events }) => {
