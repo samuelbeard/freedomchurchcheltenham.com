@@ -1,9 +1,7 @@
 import { useState, Fragment, useMemo } from "react"
 import { NextComponentType } from "next"
-import dynamic from "next/dynamic"
 import { RiAtLine, RiCalendarLine, RiMapPin2Line } from "react-icons/ri"
 import { Dialog, Transition } from "@headlessui/react"
-import { MapContainer, TileLayer, useMap } from "react-leaflet"
 
 const EventBanner: NextComponentType = () => {
     const [isOpen, setIsOpen] = useState(false)
