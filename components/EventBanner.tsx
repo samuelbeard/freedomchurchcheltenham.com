@@ -24,7 +24,6 @@ const EventBanner: NextComponentType = () => {
                     <h2 className="uppercase font-bold flex">11AM</h2>
                 </div>
                 <div className="flex justify-center items-center text-white">
-                    {/* <RiAtLine className="h-8 w-8 mr-3" /> */}
                     <h2
                         className="underline flex cursor-pointer"
                         onClick={() => setIsOpen(true)}
