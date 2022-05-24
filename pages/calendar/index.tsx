@@ -10,32 +10,31 @@ import {
     RiRefreshFill,
 } from "react-icons/ri"
 import DayHeader from "../../components/DayHeader"
-// import { getEvents, getEvent } from "../../lib/api"
+import { getEvents, getEvent } from "../../lib/api"
 
-// export async function getStaticProps() {
-//     // console.log("getStaticProps:")
-//     let allEvents = await getEvents()
-//     let event = await getEvent("3FqmVotHFOQUll9pzC6OHK")
+export async function getServerSideProps() {
+    let allEvents = await getEvents()
+    let event = await getEvent("3FqmVotHFOQUll9pzC6OHK")
 
-//     let events = allEvents.items.map(
-//         (e: {
-//             fields: { title: string; date: string }
-//             sys: { id: string }
-//         }) => {
-//             return {
-//                 title: e.fields.title,
-//                 date: e.fields.date,
-//                 id: e.sys.id,
-//             }
-//         }
-//     )
+    let events = allEvents.items.map(
+        (e: {
+            fields: { title: string; date: string }
+            sys: { id: string }
+        }) => {
+            return {
+                title: e.fields.title,
+                date: e.fields.date,
+                id: e.sys.id,
+            }
+        }
+    )
 
-//     return {
-//         props: {
-//             events,
-//         },
-//     }
-// }
+    return {
+        props: {
+            events,
+        },
+    }
+}
 
 interface Props {
     events: IEvent[]
@@ -55,7 +54,7 @@ const Calendar: NextPage<Props> = ({ events }) => {
 
     return (
         <Layout title="Calendar">
-            <div className="py-12 w-11/12 lg:w-full mx-auto">
+            <div className="py-12 w-11/12 lg:w-full mx-auto mt-6 mb-6">
                 <div className="pt-2 pb-6 flex">
                     <div className="">
                         <RiArrowLeftCircleFill
@@ -95,8 +94,7 @@ const Calendar: NextPage<Props> = ({ events }) => {
                         <Day
                             key={day.toISOString()}
                             day={day}
-                            // Hidden for now
-                            // events={events}
+                            events={events}
                         />
                     ))}
                 </div>

@@ -45,7 +45,7 @@ const Day: FC<Props> = ({ day, events }) => {
             className={`aspect-square h-20 overflow-scroll lg:h-32 p-2 rounded-sm ${style()}`}
         >
             <div>{format(day, "d")}</div>
-            {/* <div>{todaysEvents()}</div> */}
+            <div>{todaysEvents()}</div>
         </div>
     )
 }
