@@ -1,17 +1,19 @@
 import type { NextPage } from "next"
 import Head from "next/head"
 import Image from "next/image"
-import Header from "../components/Header"
+// import Header from "../components/Header"
+import Header from "../components/NewHeader"
 import EventBanner from "../components/EventBanner"
 import Footer from "../components/Footer"
 
 const Home: NextPage = () => {
     return (
         <div>
-            <div className="w-full h-screen flex justify-between flex-col bg-[url('/hero.jpg')] bg-cover">
+            <div className="w-screen h-screen flex justify-between flex-col bg-[url('/hero.jpg')] bg-cover">
                 <Head>
                     <title>Freedom Church Cheltenham</title>
                 </Head>
+                {/* <Header /> */}
                 <Header />
                 <div className="flex-grow flex items-center">
                     <section className="section">
@@ -26,10 +28,10 @@ const Home: NextPage = () => {
                                 />
                             </div>
                             <div className="mx-auto col-span-2 flex flex-col justify-center">
-                                <h2 className="h2 text-4xl m-0 text-white">
+                                <h2 className="h2 lg:text-4xl m-0 text-white">
                                     Welcome to
                                 </h2>
-                                <h1 className="h1 text-5xl lg:text-7xl m-0 uppercase text-white">
+                                <h1 className="h1 text-2xl lg:text-7xl m-0 uppercase text-white">
                                     Freedom&nbsp;Church
                                     <br />
                                     <span className="text-brand-red">

@@ -34,10 +34,10 @@ const Links: Link[] = [
         href: "/give",
         text: "Give",
     },
-    {
-        href: "/calendar",
-        text: "Calendar",
-    },
+    // {
+    //     href: "/calendar",
+    //     text: "Calendar",
+    // },
 ]
 
 interface Props {
@@ -47,17 +47,18 @@ interface Props {
 const Header: FC<Props> = ({ background }) => {
     return (
         <div
-            className={`h-24 flex justify-center items-center ${
+            className={`h-24 w-screen lg:flex justify-center items-center ${
                 background === "red" ? `bg-brand-red` : ""
             }`}
         >
             <Link href="/">
-                <a className="mx-6 flex">
+                <a className="h-12 w-12 mx-6 flex">
                     <Image
                         src="/img/logo/logo.webp"
                         width={50}
                         height={50}
                         alt="Freedom Church"
+                        className=""
                     />
                     {/* <RiHomeHeartLine
                         className={`h-7 w-7 text-white ${
